@@ -4,3 +4,4 @@ npm install express mongoose
 
 for frontend setup
 npx create-react-app .
+npm install sass
