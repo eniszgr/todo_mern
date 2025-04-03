@@ -1,0 +1,20 @@
+:root{
+    font-size: 16px
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#root{
+    width:100%;
+    height:auto;
+    min-height: 100vh;
+    background: linear-gradient(250deg,rgb(135, 135, 135),rgb(49, 49, 49)) ;
+}
+button{
+    cursor: pointer;
+    border: none;
+}

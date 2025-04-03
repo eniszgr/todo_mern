@@ -1,0 +1,164 @@
+.todo{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper{
+        max-width: 1000px;
+        width: 80%;
+        height: 500px;
+        background-color: #EEEE;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid black;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.3),0px 0px 10px rgba(0,0,0,0.3), 0px 0px 15px rgba(0,0,0,0.3);
+        
+        .topbar{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #373A40;
+            align-items: center;
+            gap:10px; // gap is between flex elements
+            padding: 0 20px;
+            
+            .mark, .searchEngine, .addButton{
+                flex: 1;
+           
+                display: flex;
+                height: 100%;
+                justify-content: center;align-items: center;
+            }
+            .mark{
+                justify-content: flex-start;
+                color: white;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 1.3rem;
+            }
+            .searchEngine input{
+                background: #F8F4E1;
+                border: none;
+                outline: none;
+                width: 80%;
+                height: 25px;
+                border-radius: 5px;
+                padding: 0 0 0 10px;
+                font-size: 1rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                transition: all 0.5s;
+                &:focus, &:valid{
+                    width: 100%;
+                }
+
+
+            }
+            .addButton{
+                justify-content: flex-end;
+
+                button{
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    font-size: 1.2rem;
+                    transition: all 0.3s;
+                    background-color: rgb(109, 193, 109);
+                    &:hover{
+                        transform: rotateZ(20deg);
+                        background-color: rgb(38, 147, 38);
+                        color: white;
+                    }
+                }
+
+            }
+
+        }
+
+
+
+        .list{
+            width: 100%;
+            height: calc(100% - 50px);
+            
+            display: flex;
+            flex-direction: column;
+            gap:    10px;
+            padding: 10px;
+            .listItem{
+                width: 100%;
+                height: 30px;
+                background-color: rgb(167, 167, 167);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 3px 0px 10px;
+                border-radius: 10px;
+                &:nth-child(2n){
+                    background-color: #bcbcbcee;
+                }
+                
+                input{
+                    width: 90%;
+                    background: none;
+                    outline: none;
+                    border:none;
+                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                }
+                .buttons{
+                    width: 9%;
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 10px;
+
+                    button{
+                        width: 25px;
+                        height: 25px;
+                        border: none;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        outline: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 1rem;
+
+                    }
+                    .editButton{
+                        background-color: rgb(255, 255, 163);
+                        transition: all 0.4s;
+                        &:hover{
+                            background-color: rgb(180, 180, 102);
+                           
+                            color: white;
+                        }
+                    }
+                    .deleteButton{
+                        background-color: rgb(228, 142, 142);
+                        transition: all 0.4s;
+                        &:hover{
+                            background-color: rgb(162, 92, 92);
+                           
+                            color: white;
+                        }
+                    }
+                }
+
+
+            }
+
+        
+        
+        
+        }
+
+
+    }
+
+
+
+}

@@ -5,6 +5,9 @@ function List() {
   return (
     <div className="list">
       <ListItem/>
+      <ListItem/>
+      <ListItem/>
+      <ListItem/>
     </div>
   );
 }
