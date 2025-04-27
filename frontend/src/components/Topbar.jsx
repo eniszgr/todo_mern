@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { openAddModal } from "../stores/modal";
 
 function Topbar() {
+  const dispatch = useDispatch(); //dispatch is necessary to use redux functions
   return (
     <div className="topbar">
       <h3 className="mark">ToDo App</h3>
@@ -8,7 +11,7 @@ function Topbar() {
         <input type="text" placeholder="Search in your list" required="required"/>
       </div>
       <div className="addButton">
-        <button>+</button>
+        <button onClick={()=> dispatch(openAddModal())}>+</button>
       </div>
     </div>
   );

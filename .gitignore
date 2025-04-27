@@ -1,3 +1,4 @@
 # Backend ve frontend içindeki node_modules klasörlerini yok say
 backend/node_modules/
 frontend/node_modules/
+.qodo
