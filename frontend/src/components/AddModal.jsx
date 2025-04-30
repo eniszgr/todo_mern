@@ -5,8 +5,12 @@ import {closeAddModal} from '../stores/modal.js'
 
 function AddModal() {
   const {addModal} = useSelector((state=>state.modal));
-  console.log(addModal);
+  //useSelector is a hook from redux. It access to global states in redux
+  //we filter to our modal slice and get addModal value
+
   const dispatch = useDispatch();
+  //useDispatch is a function from redux. It provides to use functions in redux
+
 
 
   return (

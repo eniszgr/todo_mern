@@ -1,9 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit"
+//modal is a name of page, if there are multiple slices, we can collect under the same name
 
 //setup settings
 const initialState = {
     addModal: false,
 }
+
 //slice(variable) definition
 const modal = createSlice({                 
     name:"modal",
