@@ -23,7 +23,6 @@ router.post("/", (req, res) => {
 
     //save
     addText.save().then((e) => {
-        console.log(e);
         return sendMessage(res, true, e);
       })
       .catch((e) => {

@@ -11,11 +11,11 @@ const allDataProcess = createSlice({
   name:'allDataProcess',
   initialState,
   reducers:{
-    getData:()=>{
-
+    addData:(state,{payload})=>{              //add data for frontend
+      state.data= [...state.data, payload];
     }
   }
 })
 
-export const {getData} = allDataProcess.actions;
+export const {addData} = allDataProcess.actions;
 export default allDataProcess.reducer;
