@@ -49,6 +49,7 @@ function EditModal() {
               dispatch(editData(response.message)); //if response is true, add data to redux store
               setTextareaValue(""); //clear textarea value
               dispatch(closeEditModal()); //close modal
+              window.location.reload();
             }
           }}
         >
