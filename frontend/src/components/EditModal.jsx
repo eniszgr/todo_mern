@@ -1,31 +1,39 @@
 import React from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { closeAddModal } from "../stores/modal.js";
-import { addData } from "../stores/data.js";
-import { useState } from "react";
+import { closeEditModal } from "../stores/modal.js";
+import { editData } from "../stores/data.js";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-function AddModal() {
-  const { addModal } = useSelector((state) => state.modal);
+function EditModal() {
+  const { editModal,singleData } = useSelector((state) => state.modal);
   //useSelector is a hook from redux. It access to global states in redux
-  //we filter to our modal slice and get addModal value
+  //we filter to our modal slice and get EditModal value
 
   const dispatch = useDispatch();
   //useDispatch is a function from redux. It provides to use functions in redux
 
   const [textareaValue, setTextareaValue] = useState("");
   //it's o hook for get text area value
+  
+
+
+  useEffect(() => {
+   if(singleData.text){
+    setTextareaValue(singleData.text); //set textarea value to singleData.text
+   }
+  }, [singleData]); //useEffect is a hook that runs when the component mounts or when the singleData changes
 
   return (
-    //is addModal is true, set className modal active, else set className modal
-    <div className={addModal ? "modal active" : "modal"}>
+    //is EditModal is true, set className modal active, else set className modal
+    <div className={editModal ? "modal active" : "modal"}>
       <div className="wrapper">
         <div className="topbar">
           <h3 className="mark">Todo App</h3>
           <button
             className="closeButton"
-            onClick={() => dispatch(closeAddModal())}
+            onClick={() => dispatch(closeEditModal())}
           >
             x
           </button>
@@ -33,14 +41,14 @@ function AddModal() {
         <form
           onSubmit={async (e) => {
             e.preventDefault(); //prevent to direct to another page
-            const formData = { text: textareaValue }; //get value from textarea & defined as text on schema
-            let response = await axios.post("/add", formData);
+            const formData = { id:singleData._id, text: textareaValue }; //get value from textarea & defined as text on schema
+            let response = await axios.post("/edit", formData);
             response = response.data;
 
             if (response.type) {
-              dispatch(addData(response.message)); //if response is true, add data to redux store
+              dispatch(editData(response.message)); //if response is true, add data to redux store
               setTextareaValue(""); //clear textarea value
-              dispatch(closeAddModal()); //close modal
+              dispatch(closeEditModal()); //close modal
             }
           }}
         >
@@ -54,14 +62,14 @@ function AddModal() {
                   setTextareaValue(e.target.value);
                 }}
               ></textarea>
-              <span>Add New List</span>
+              <span>Update New List</span>
             </div>
           </div>
           <div className="buttons">
-            <button type="button" onClick={() => dispatch(closeAddModal())}>
+            <button type="button" onClick={() => dispatch(closeEditModal())}>
               Cancel
             </button>
-            <button type="submit">Add</button>
+            <button type="submit">Update</button>
           </div>
         </form>
       </div>
@@ -69,4 +77,4 @@ function AddModal() {
   );
 }
 
-export default AddModal;
+export default EditModal;
