@@ -42,6 +42,8 @@ cd frontend
 npm install
 npm start
 ```
+
+## ✨Screenshots
 ![home](https://github.com/user-attachments/assets/f7c98fea-dd4f-4d58-a5e6-de594bc6b484)
 
 ![edit](https://github.com/user-attachments/assets/af5b71db-efee-4b10-9590-a3bf1ddf2988)
